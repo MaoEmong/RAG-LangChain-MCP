@@ -415,95 +415,6 @@ OCR_LANGUAGE=eng+kor
 - 민감한 정보는 환경 변수나 비밀 관리 서비스 사용
 - Git에 `.env` 파일 커밋 금지 (`.gitignore`에 추가)
 
-## 문서화 상태
-
-### ✅ 한국어 문서화 완료
-
-모든 64개 Python 파일이 상세한 한국어 도큐스트링 및 주석으로 문서화되었습니다:
-
-**패키지 레벨 (`__init__.py`)**
-- `reasoning/` - 추론 모듈 개요
-- `reasoning/chains/` - 체인 구현 목록
-- `reasoning/prompts/` - 프롬프트 템플릿 목록
-- `reasoning/schemas/` - 스키마 정의 목록
-- `reasoning/services/` - 서비스 목록
-- `ocr/` - OCR 엔진 목록
-- `api/` - API 모듈 설명
-
-**모듈 레벨 (각 Python 파일)**
-- 파일 용도 및 기능 설명
-- 주요 클래스/함수 목록
-- 사용 흐름 및 연결성
-
-**함수/메서드 레벨**
-- Args (인자) 설명
-- Returns (반환값) 설명
-- Note (주의사항) 포함
-- 예시 코드 (필요시)
-
-**보안 개선**
-- `config.py`의 하드코딩된 민감 정보 제거
-- API 키 및 DB 암호를 플레이스홀더로 대체
-- 환경 변수 사용 권장
-
-### 문서화 범위
-
-```
-✓ 핵심 모듈: config.py, api/rag_server.py, query_test.py
-✓ 검색 모듈: retrieval/*, preprocess/text_cleaner.py
-✓ 로더 모듈: loaders/*, ocr/*
-✓ 수집 모듈: ingest/*
-✓ 추론 체인: reasoning/chains/*
-✓ 프롬프트: reasoning/prompts/*
-✓ 스키마: reasoning/schemas/*
-✓ 서비스: reasoning/services/* (15개 서비스)
-✓ 명령: commands/registry.py
-✓ 테스트: test/*.py
-✓ 구문 검사: 모든 파일 Python AST 검증 완료 ✓
-```
-
-### 코드 예시
-
-각 모듈의 한국어 도큐스트링 형식:
-
-```python
-"""
-파일 경로/이름
-============================================================
-간단한 한 줄 설명
-
-상세 설명:
-- 주요 기능 1
-- 주요 기능 2
-- 주요 기능 3
-
-특징:
-- 특징 1
-- 특징 2
-"""
-
-def function_name(param1: str, param2: int) -> dict:
-    """
-    함수 기능 상세 설명
-    
-    추가 설명이 필요한 경우 여기에 작성
-    
-    Args:
-        param1: 파라미터 1 설명
-        param2: 파라미터 2 설명
-    
-    Returns:
-        dict: 반환값 설명
-            - key1: 설명
-            - key2: 설명
-    
-    Note:
-        - 주의사항 1
-        - 주의사항 2
-    """
-    pass
-```
-
 ## 데이터 적재(ingest)
 
 문서를 `docs/`에 넣고 실행:
@@ -544,20 +455,6 @@ python ingest/ingest_langchain.py
 # 4. 파일별 Parent 문서 생성 및 SQLite 저장
 # 5. Child 청크 생성 및 ChromaDB 벡터 저장
 # 6. 진행 상황 콘솔 출력
-```
-
-### 테스트
-
-문서 로더 기능 테스트:
-
-```bash
-python test/test_loaders.py
-```
-
-검색 기능 테스트:
-
-```bash
-python test/test_retrieval.py
 ```
 
 ## 서버 실행
