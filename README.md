@@ -1,6 +1,7 @@
-# LangChain 기반 RAG 서버 (고급)
+# LangChain 기반 하이브리드 RAG 서버 (MCP)
 
-문서 기반 QA와 명령 JSON 생성을 동시에 제공하는 FastAPI RAG 서버입니다. Parent-Document Retriever 구조, FlashRank Re-Ranking, guardrail/신뢰도 계산, intent 자동 분기, 명령 화이트리스트 검증을 포함합니다.
+문서 기반 QA, 명령 JSON 생성, DB 연동을 통합한 FastAPI RAG 서버입니다.  
+Parent-Document Retriever, FlashRank Re-Ranking, DB+문서 하이브리드 응답, intent 자동 분기, MCP(Model Context Protocol) 지원을 포함합니다.
 
 **문서화 상태**: 모든 Python 파일에 한국어 도큐스트링 및 상세 주석 추가됨 (포트폴리오 공개용)
 
